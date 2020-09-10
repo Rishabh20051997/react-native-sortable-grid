@@ -5,7 +5,8 @@ import {
   TouchableWithoutFeedback,
   PanResponder,
   Image,
-  View
+  View,
+  ScrollView
 } from 'react-native'
 
 import _ from 'lodash'
@@ -47,6 +48,9 @@ class Block extends Component {
 class SortableGrid extends Component {
 
     render = () =>
+    <ScrollView 
+     scrollEnabled ={this.panCapture ? false: true}
+     style ={{ flex :1}}>
       <Animated.View
         style={ this._getGridStyle() }
         onLayout={this.assessGridSize}
@@ -69,6 +73,7 @@ class SortableGrid extends Component {
             </Block>
         )}
       </Animated.View>
+     </ScrollView>
 
   constructor() {
     super()
